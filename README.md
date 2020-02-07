@@ -1,2 +1,2 @@
 # bqStudio_graphManager
-Custom graph manager for TI bqStudio's logs visualisation
+Custom graph manager for TI bqStudio's logs visualization

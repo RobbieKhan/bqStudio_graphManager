@@ -10,10 +10,10 @@ THRESHOLD_OVER_VOLTAGE = 3700
 THRESHOLD_UNDER_VOLTAGE = 2000
 THRESHOLD_CHARGE_VOLTAGE = 21600
 THRESHOLD_DISCHARGE_VOLTAGE = 12000
-SIGNALS_NUMBER = 66                             # number of data columns
 SIGNAL_LINE_IN_LOGFILE = 15                     # signal names in log file can be found in this line
 DATA_START_IN_LOGFILE = 16                      # data in log file starts from string with this number
 XAXIS_RAW_IN_LOGFILE = "DateTime"               # have to be in "smth HH:MM:SS" format. Otherwise 'CalculateXaxis()' func have to be modified
+
 
 
 class LogGraph:
@@ -37,7 +37,7 @@ class LogGraph:
         self.SIGNAL_LIST.clear()
         for signalName in (fileContent[SIGNAL_LINE_IN_LOGFILE].split(',')):
             self.SIGNAL_LIST.append(signalName)
-        for signalNum in range(SIGNALS_NUMBER):
+        for signalNum in range(len(self.SIGNAL_LIST)):
             self.DATA_LIST.append([])
             for dataNum in range(self.samplesNum):
                 self.DATA_LIST[signalNum].append(fileContent[dataNum + DATA_START_IN_LOGFILE].split(',')[signalNum])
